@@ -120,6 +120,12 @@ h1,h2,h3{text-wrap:balance;line-height:1.3}
 </footer>
 <script src="https://cdn.jsdelivr.net/gh/RashedSG/shawt@7c54d2d3728a3b84617dda95f2c74b0a819c41a0/app.js"></script>
 <script src="fusha.js?v=5"></script>
-<script src="type.js?v=1"></script>
+<script>
+Object.assign(T.ar,{hero_title:"تدرّب وفق رقم\nلا وفق الإحساس",hero_lead:"خطة أسبوعية تُبنى من حجمك الحالي وأيامك المتاحة، ونافذة تمرين بحسب حرارة مدينتك، واختبارات ميدانية تقيس التقدّم.\nالتقييم الصحي بوابة قصيرة، وليس التطبيق كلّه."});
+(function(){function formatHero(){document.querySelectorAll('[data-t="hero_title"],[data-t="hero_lead"]').forEach(function(el){el.innerHTML=String(t(el.getAttribute("data-t"))).replace(/\n/g,"<br>");});}
+var oT=window.applyTranslations;window.applyTranslations=function(){if(typeof oT==="function")oT();formatHero();};
+var oN=window.navigate;if(typeof oN==="function"){window.navigate=function(){oN.apply(this,arguments);formatHero();};}
+formatHero();})();
+</script>
 </body>
 </html>
