@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 512" role="img" aria-label="شوط">
+  <path d="M 403.05,149.16 A 181.76 181.76 0 1 0 406.69,357.64" fill="none" stroke="#00F19F" stroke-width="23.55" stroke-linecap="round"/>
+  <path d="M 365.04,164.51 A 142.34 142.34 0 1 0 368.17,343.63" fill="none" stroke="#00F19F" stroke-width="5.63" stroke-linecap="round"/>
+  <polygon points="428.16,186.20 418.79,142.82 391.45,161.26" fill="#00F19F"/>
+  <text x="500" y="328" font-family="Changa, 'Noto Sans Arabic', Cairo, Tahoma, sans-serif" font-size="248" font-weight="800" fill="currentColor">شوط</text>
+</svg>
