@@ -22,7 +22,6 @@
 </head>
 <body>
 <a class="skip-link" href="#app" id="skipLink">تخطي إلى المحتوى</a>
-
 <header class="site">
   <div class="container nav-row">
     <a href="#/home" class="logo"><img class="logo-img" src="img/logo.svg" alt="شوط"><span data-t="brand">شوط</span></a>
@@ -37,15 +36,14 @@
       <a href="#/routes" data-route="routes" data-t="nav_routes">المسارات</a>
     </nav>
     <div class="header-actions">
-      <button class="icon-btn" id="menuToggle" type="button" title="Menu" aria-label="القائمة" aria-expanded="false" aria-controls="drawer">☰</button>
-      <button class="icon-btn" id="langToggle" type="button" title="Language" aria-label="تغيير اللغة">AR</button>
-      <button class="icon-btn" id="themeToggle" type="button" title="Theme" aria-label="تغيير المظهر"></button>
+      <button class="icon-btn" id="menuToggle" type="button" aria-label="القائمة" aria-expanded="false" aria-controls="drawer">☰</button>
+      <button class="icon-btn" id="langToggle" type="button" aria-label="تغيير اللغة">AR</button>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="تغيير المظهر"></button>
       <a href="#/account" class="icon-btn" id="accountIcon" data-icon="user" title="Account"></a>
       <a href="#/questionnaire" class="btn btn-primary btn-sm cta-desktop" data-t="cta_start">ابدأ التقييم</a>
     </div>
   </div>
 </header>
-
 <div class="drawer-bg" id="drawerBg"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="القائمة">
   <a href="#/home" data-route="home" data-t="nav_home">الرئيسية</a>
@@ -67,33 +65,23 @@
   <a href="#/account" data-route="account" data-t="nav_account">حسابي</a>
   <a href="#/questionnaire" data-t="cta_start">ابدأ التقييم</a>
 </aside>
-
 <main id="app" tabindex="-1"></main>
-<div class="sr-only" id="liveStatus" aria-live="polite" aria-atomic="true"></div>
-
-<nav class="bottom-nav">
-  <ul>
-    <li><a href="#/home" data-route="home"><span class="bn-icon" data-icon="home"></span><span data-t="nav_home">الرئيسية</span></a></li>
-    <li><a href="#/plan" data-route="plan"><span class="bn-icon" data-icon="calendar"></span><span data-t="nav_plan">خطتي</span></a></li>
-    <li><a href="#/activities" data-route="activities"><span class="bn-icon" data-icon="run"></span><span data-t="nav_act">نشاط</span></a></li>
-    <li><a href="#/events" data-route="events"><span class="bn-icon" data-icon="users"></span><span data-t="nav_events">فعاليات</span></a></li>
-    <li><a href="#/account" data-route="account"><span class="bn-icon" data-icon="user"></span><span data-t="nav_account">حسابي</span></a></li>
-  </ul>
-</nav>
-
-<footer class="site">
-  <div class="container footer-grid">
-    <div class="logo"><img class="logo-img" src="img/logo.svg" alt="شوط"><span data-t="brand">شوط</span></div>
-    <div class="footer-links">
-      <a href="#/awareness" data-t="nav_aware">الوعي</a>
-      <a href="#/legal" data-t="foot_legal">الشروط والخصوصية</a>
-      <a href="#/specialist" data-t="foot_specialist">أخصائي</a>
-      <a href="#/account" data-t="foot_account">حسابي</a>
-    </div>
-  </div>
-</footer>
-
+<div class="sr-only" id="liveStatus" aria-live="polite"></div>
+<nav class="bottom-nav"><ul>
+<li><a href="#/home" data-route="home"><span class="bn-icon" data-icon="home"></span><span data-t="nav_home">الرئيسية</span></a></li>
+<li><a href="#/plan" data-route="plan"><span class="bn-icon" data-icon="calendar"></span><span data-t="nav_plan">خطتي</span></a></li>
+<li><a href="#/activities" data-route="activities"><span class="bn-icon" data-icon="run"></span><span data-t="nav_act">نشاط</span></a></li>
+<li><a href="#/events" data-route="events"><span class="bn-icon" data-icon="users"></span><span data-t="nav_events">فعاليات</span></a></li>
+<li><a href="#/account" data-route="account"><span class="bn-icon" data-icon="user"></span><span data-t="nav_account">حسابي</span></a></li>
+</ul></nav>
+<footer class="site"><div class="container footer-grid">
+<div class="logo"><img class="logo-img" src="img/logo.svg" alt="شوط"><span data-t="brand">شوط</span></div>
+<div class="footer-links">
+<a href="#/awareness" data-t="nav_aware">الوعي</a>
+<a href="#/legal" data-t="foot_legal">الشروط والخصوصية</a>
+<a href="#/specialist" data-t="foot_specialist">أخصائي</a>
+<a href="#/account" data-t="foot_account">حسابي</a>
+</div></div></footer>
 <script src="https://cdn.jsdelivr.net/gh/RashedSG/shawt@7c54d2d3728a3b84617dda95f2c74b0a819c41a0/app.js"></script>
-<script src="fusha.js?v=3"></script>
-</body>
-</html>
+<script src="fusha.js?v=4"></script>
+</body></html>
