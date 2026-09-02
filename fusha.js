@@ -29,5 +29,54 @@ Object.assign(T.ar, {
   test_rules_title:"\u0642\u0648\u0627\u0639\u062f \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629",
   test_rules:"\u0644\u0627 \u062a\u0642\u0627\u0631\u0646 \u0627\u062e\u062a\u0628\u0627\u0631 \u062d\u0631\u0651 \u0628\u0627\u062e\u062a\u0628\u0627\u0631 \u0641\u062c\u0631. \u0623\u0639\u062f \u0643\u0644 \u0633\u0628\u0639\u0629 \u0623\u0633\u0627\u0628\u064a\u0639 \u0639\u0644\u0649 \u0627\u0644\u0645\u0633\u0627\u0631 \u0646\u0641\u0633\u0647. \u0627\u0644\u0631\u0642\u0645 \u0644\u0644\u062a\u0642\u062f\u0651\u0645 \u0644\u0627 \u0644\u0644\u062a\u0634\u062e\u064a\u0635."
 });
+function fushaP(cls, weight, text){
+  const el = document.createElement('p');
+  el.className = cls;
+  if (weight) el.style.fontWeight = '700';
+  el.style.marginTop = '10px';
+  el.textContent = text;
+  return el;
+}
+function fushaEnhanceTests(){
+  const hash = location.hash || '';
+  if (hash.indexOf('tests') < 0) return;
+  const app = document.getElementById('app');
+  if (!app || app.querySelector('.fusha-block')) return;
+  const grid = app.querySelector('.grid');
+  if (grid) {
+    const specs = [
+      ['test_run_how','test_run_meaning'],
+      ['test_swim_how','test_swim_meaning'],
+      ['test_bike_how','test_bike_meaning']
+    ];
+    const cards = grid.querySelectorAll('.card');
+    specs.forEach(function(keys, i){
+      const card = cards[i];
+      if (!card) return;
+      const anchor = card.querySelector('.field, .up-row');
+      const howT = fushaP('muted small fusha-block', true, t('test_how'));
+      const how = fushaP('muted small', false, t(keys[0]));
+      const meanT = fushaP('muted small', true, t('test_meaning'));
+      const mean = fushaP('muted small', false, t(keys[1]));
+      if (anchor) {
+        card.insertBefore(howT, anchor);
+        card.insertBefore(how, anchor);
+        card.insertBefore(meanT, anchor);
+        card.insertBefore(mean, anchor);
+      } else {
+        card.appendChild(howT); card.appendChild(how); card.appendChild(meanT); card.appendChild(mean);
+      }
+    });
+  }
+  const talk = fushaP('muted small fusha-block', false, t('test_talk') + ' \u2014 ' + t('test_talk_how') + ' ' + t('test_talk_meaning'));
+  const rules = fushaP('muted small fusha-block', false, t('test_rules_title') + ' \u2014 ' + t('test_rules'));
+  const intro = fushaP('muted fusha-block', false, t('tests_intro_title') + ' \u2014 ' + t('tests_intro'));
+  const head = app.querySelector('.section-head');
+  if (head && head.parentNode) head.parentNode.insertBefore(intro, head.nextSibling);
+  app.appendChild(talk);
+  app.appendChild(rules);
+}
 if (typeof applyTranslations === 'function') applyTranslations();
-if (typeof navigate === 'function') navigate();
+const _nav = (typeof navigate === 'function') ? navigate : function(){};
+navigate = function(){ _nav(); setTimeout(fushaEnhanceTests, 0); };
+navigate();
