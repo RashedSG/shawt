@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- بدّل REPLACE-WITH-YOUR-DOMAIN بعد ما تختار الاستضافة والدومين -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/</loc></url>
+</urlset>

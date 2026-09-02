@@ -1,0 +1,17 @@
+{
+  "name": "شوط — كمّل الشوط",
+  "short_name": "شوط",
+  "description": "منصة أداء وتحمل للإمارات: خطة، طقس، اختبارات ميدانية، وفعاليات محلية.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "img/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "img/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
