@@ -49,8 +49,28 @@ nav.main-links a.active, nav.main-links a:hover{color:var(--text); border-color:
 
 .drawer-bg{display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:80;}
 .drawer-bg.open{display:block;}
-.drawer{position:fixed; top:0; inset-inline-end:-min(86vw,360px); width:min(86vw,360px); height:100dvh; background:var(--card); z-index:90; padding:20px 18px calc(24px + env(safe-area-inset-bottom)); border-inline-start:1px solid var(--card-border); transition:inset-inline-end .22s ease; overflow:auto;}
-.drawer.open{inset-inline-end:0;}
+.drawer{
+  position:fixed; top:0; bottom:0;
+  width:min(86vw,360px); height:100dvh;
+  background:var(--card); z-index:90;
+  padding:20px 18px calc(24px + env(safe-area-inset-bottom));
+  overflow:auto;
+  visibility:hidden; pointer-events:none;
+  right:0; left:auto;
+  transform:translateX(110%);
+  transition:transform .22s ease, visibility .22s;
+  border-inline-start:1px solid var(--card-border);
+}
+html[dir="rtl"] .drawer{
+  right:auto; left:0;
+  transform:translateX(-110%);
+  border-inline-start:none;
+  border-inline-end:1px solid var(--card-border);
+}
+.drawer.open{
+  visibility:visible; pointer-events:auto;
+  transform:translateX(0);
+}
 .drawer a{display:block; padding:12px 8px; font-weight:700; border-bottom:1px solid var(--card-border);}
 .drawer a.active{color:var(--primary);}
 
@@ -220,7 +240,6 @@ footer.site{border-top:1px solid var(--card-border); padding:var(--sp-4) 0; marg
   .week-grid{min-width:0; grid-template-columns:repeat(7,minmax(0,1fr));}
 }
 
-/* ===== advanced responsive layer ===== */
 .skip-link{position:absolute; inset-inline-start:12px; top:-40px; background:var(--primary); color:#fff; padding:8px 12px; border-radius:8px; z-index:100;}
 .skip-link:focus{top:12px;}
 :focus-visible{outline:2px solid var(--primary); outline-offset:3px;}
@@ -241,10 +260,6 @@ html[dir="ltr"] .week-scroll{mask-image:linear-gradient(to right, transparent, #
 
 .stat-card{min-height:100%;}
 .hero-visual svg{max-width:42%; height:auto;}
-
-@supports (grid-template-columns: subgrid){
-  .account-layout{align-items:stretch;}
-}
 
 @media (hover:hover) and (pointer:fine){
   .choice:hover,.wo-chip:hover,.kudos-btn:hover,.icon-btn:hover{
@@ -296,8 +311,6 @@ html[dir="ltr"] .week-scroll{mask-image:linear-gradient(to right, transparent, #
 html.nav-open{overflow:hidden;}
 .drawer-bg.open{backdrop-filter:blur(4px);}
 
-
-/* ===== touch-target layer ===== */
 html{-webkit-tap-highlight-color:transparent; touch-action:manipulation;}
 button,a,.choice,.wo-chip,.kudos-btn,.sev-btn,.switch,.icon-btn,.tab-btn{
   touch-action:manipulation;
@@ -323,7 +336,6 @@ input,select,textarea{touch-action:manipulation;}
   .toggle-row{min-height:56px;}
 }
 
-/* ===== mobile-ux layer ===== */
 @media (max-width:720px){
   .nav-row{min-height:56px; padding:6px 0;}
   .logo span:not(.logo-mark){max-width:42vw; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
