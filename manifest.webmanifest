@@ -1,0 +1,15 @@
+{
+  "name": "شوط",
+  "short_name": "شوط",
+  "description": "كمّل الشوط — خطة أداء للإمارات",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "img/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
