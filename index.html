@@ -1,1 +1,98 @@
-PLACEHOLDER_INDEX
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="light dark">
+<meta name="mobile-web-app-capable" content="yes">
+<title>شوط — أكمل الشوط</title>
+<meta name="description" content="شوط: منصة أداء وتحمل للإمارات. خطة من حجمك الحالي وأيامك، وطقس ونافذة تمرين بحسب مدينتك، واختبارات ميدانية تقيس التقدّم. الأمان بوابة سريعة، وليس استبياناً صحياً طويلاً.">
+<meta property="og:title" content="شوط — أكمل الشوط">
+<meta property="og:description" content="خطة أداء، طقس الإمارات، اختبارات ميدانية، وفعاليات محلية.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero-run.jpg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/logo.svg">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gistic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@700;800&family=Readex+Pro:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#app" id="skipLink">تخطي إلى المحتوى</a>
+
+<header class="site">
+  <div class="container nav-row">
+    <a href="#/home" class="logo"><img class="logo-img" src="img/logo.svg" alt="شوط"><span data-t="brand">شوط</span></a>
+    <nav class="main-links">
+      <a href="#/home" data-route="home" data-t="nav_home">الرئيسية</a>
+      <a href="#/plan" data-route="plan" data-t="nav_plan">خطتي</a>
+      <a href="#/activities" data-route="activities" data-t="nav_act">الأنشطة</a>
+      <a href="#/events" data-route="events" data-t="nav_events">الفعاليات</a>
+      <a href="#/weather" data-route="weather" data-t="nav_weather">الطقس والتمرين</a>
+      <a href="#/tests" data-route="tests" data-t="nav_tests">الاختبارات</a>
+      <a href="#/progress" data-route="progress" data-t="nav_progress">تقدمي</a>
+      <a href="#/routes" data-route="routes" data-t="nav_routes">المسارات</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="menuToggle" type="button" title="Menu" aria-label="القائمة" aria-expanded="false" aria-controls="drawer">☰</button>
+      <button class="icon-btn" id="langToggle" type="button" title="Language" aria-label="تغيير اللغة">AR</button>
+      <button class="icon-btn" id="themeToggle" type="button" title="Theme" aria-label="تغيير المظهر"></button>
+      <a href="#/account" class="icon-btn" id="accountIcon" data-icon="user" title="Account"></a>
+      <a href="#/questionnaire" class="btn btn-primary btn-sm cta-desktop" data-t="cta_start">ابدأ التقييم</a>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="القائمة">
+  <a href="#/home" data-route="home" data-t="nav_home">الرئيسية</a>
+  <a href="#/dashboard" data-route="dashboard" data-t="nav_dash">لوحة التحكم</a>
+  <a href="#/progress" data-route="progress" data-t="nav_progress">تقدمي</a>
+  <a href="#/plan" data-route="plan" data-t="nav_plan">خطتي</a>
+  <a href="#/activities" data-route="activities" data-t="nav_act">الأنشطة</a>
+  <a href="#/events" data-route="events" data-t="nav_events">الفعاليات</a>
+  <a href="#/weather" data-route="weather" data-t="nav_weather">الطقس والتمرين</a>
+  <a href="#/tests" data-route="tests" data-t="nav_tests">الاختبارات</a>
+  <a href="#/routes" data-route="routes" data-t="nav_routes">المسارات</a>
+  <a href="#/equipment" data-route="equipment" data-t="nav_equipment">المعدات</a>
+  <a href="#/community" data-route="community" data-t="nav_community">المجتمع</a>
+  <a href="#/awareness" data-route="awareness" data-t="nav_aware">الوعي</a>
+  <a href="#/climate" data-route="climate" data-t="nav_climate">الطقس والصيام</a>
+  <a href="#/nutrition" data-route="nutrition" data-t="nav_nutrition">التغذية</a>
+  <a href="#/supplements" data-route="supplements" data-t="nav_supp">المكملات</a>
+  <a href="#/specialist" data-route="specialist" data-t="nav_specialist">أخصائي</a>
+  <a href="#/account" data-route="account" data-t="nav_account">حسابي</a>
+  <a href="#/questionnaire" data-t="cta_start">ابدأ التقييم</a>
+</aside>
+
+<main id="app" tabindex="-1"></main>
+<div class="sr-only" id="liveStatus" aria-live="polite" aria-atomic="true"></div>
+
+<nav class="bottom-nav">
+  <ul>
+    <li><a href="#/home" data-route="home"><span class="bn-icon" data-icon="home"></span><span data-t="nav_home">الرئيسية</span></a></li>
+    <li><a href="#/plan" data-route="plan"><span class="bn-icon" data-icon="calendar"></span><span data-t="nav_plan">خطتي</span></a></li>
+    <li><a href="#/activities" data-route="activities"><span class="bn-icon" data-icon="run"></span><span data-t="nav_act">نشاط</span></a></li>
+    <li><a href="#/events" data-route="events"><span class="bn-icon" data-icon="users"></span><span data-t="nav_events">فعاليات</span></a></li>
+    <li><a href="#/account" data-route="account"><span class="bn-icon" data-icon="user"></span><span data-t="nav_account">حسابي</span></a></li>
+  </ul>
+</nav>
+
+<footer class="site">
+  <div class="container footer-grid">
+    <div class="logo"><img class="logo-img" src="img/logo.svg" alt="شوط"><span data-t="brand">شوط</span></div>
+    <div class="footer-links">
+      <a href="#/awareness" data-t="nav_aware">الوعي</a>
+      <a href="#/legal" data-t="foot_legal">الشروط والخصوصية</a>
+      <a href="#/specialist" data-t="foot_specialist">أخصائي</a>
+      <a href="#/account" data-t="foot_account">حسابي</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
