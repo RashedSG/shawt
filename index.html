@@ -13,16 +13,19 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="img/hero-run.jpg">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="img/logo.svg?v=gold3">
-<link rel="icon" href="img/logo.svg?v=gold3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/logo.svg?v=theme1">
+<link rel="icon" href="img/logo.svg?v=theme1" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@700;800&family=Readex+Pro:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=type1">
 <style>
-.logo{display:flex;align-items:center;gap:0;flex:0 0 auto;line-height:1;color:inherit;text-decoration:none}
+.logo{display:flex;align-items:center;gap:0;flex:0 0 auto;line-height:1;color:inherit;text-decoration:none;background:transparent}
 .logo-lockup{height:40px;width:auto;display:block;background:transparent}
 footer .logo-lockup{height:44px}
+.logo-on-light{display:none}
+html.light .logo-on-dark{display:none}
+html.light .logo-on-light{display:block}
 html[lang="ar"] body{text-rendering:optimizeLegibility}
 .hero h1{line-height:1.22;text-wrap:balance;overflow-wrap:normal;hyphens:none;margin-top:10px}
 .hero p.lead{line-height:1.8;text-wrap:pretty;max-width:36rem}
@@ -40,7 +43,8 @@ h1,h2,h3{text-wrap:balance;line-height:1.3}
 <header class="site">
   <div class="container nav-row">
     <a href="#/home" class="logo" aria-label="شوط">
-      <img class="logo-lockup" src="img/logo-lockup.svg?v=gold3" alt="شوط">
+      <img class="logo-lockup logo-on-dark" src="img/logo-lockup-dark.svg?v=theme1" alt="شوط">
+      <img class="logo-lockup logo-on-light" src="img/logo-lockup-light.svg?v=theme1" alt="">
     </a>
     <nav class="main-links">
       <a href="#/home" data-route="home" data-t="nav_home">الرئيسية</a>
@@ -100,7 +104,8 @@ h1,h2,h3{text-wrap:balance;line-height:1.3}
 <footer class="site">
   <div class="container footer-grid">
     <div class="logo" aria-label="شوط">
-      <img class="logo-lockup" src="img/logo-lockup.svg?v=gold3" alt="شوط">
+      <img class="logo-lockup logo-on-dark" src="img/logo-lockup-dark.svg?v=theme1" alt="شوط">
+      <img class="logo-lockup logo-on-light" src="img/logo-lockup-light.svg?v=theme1" alt="">
     </div>
     <div class="footer-links">
       <a href="#/awareness" data-t="nav_aware">الوعي</a>
