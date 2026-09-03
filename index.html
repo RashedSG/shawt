@@ -149,13 +149,18 @@ h1,h2,h3{text-wrap:balance;line-height:1.3}
 <script>
 Object.assign(T.ar,{hero_title:"تدرّب وفق رقم\nلا وفق الإحساس",hero_lead:"خطة أسبوعية تُبنى من حجمك الحالي وأيامك المتاحة، ونافذة تمرين بحسب حرارة مدينتك، واختبارات ميدانية تقيس التقدّم.\nالتقييم الصحي بوابة قصيرة، وليس التطبيق كلّه."});
 (function(){
-  var THEMES=['dark','light'];
   var META={dark:'#1C1C1C',light:'#F6F4F0'};
-  var NAMES={dark:{ar:'ليلي',en:'Night'},light:{ar:'نهاري',en:'Day'}};
-  function lang(){return (window.state&&state.lang)||document.documentElement.lang||'ar';}
+  function lang(){
+    try{ if(typeof state!=='undefined' && state && state.lang) return state.lang; }catch(e){}
+    return document.documentElement.lang||'ar';
+  }
+  function currentTheme(){
+    try{ if(typeof state!=='undefined' && state && state.theme==='light') return 'light'; }catch(e){}
+    return document.documentElement.classList.contains('light')?'light':'dark';
+  }
   function paintTheme(theme){
-    if(THEMES.indexOf(theme)<0) theme='dark';
-    if(window.state){state.theme=theme; if(typeof persist==='function') persist();}
+    theme = theme==='light' ? 'light' : 'dark';
+    try{ if(typeof state!=='undefined' && state){ state.theme=theme; if(typeof persist==='function') persist(); } }catch(e){}
     var root=document.documentElement;
     root.classList.remove('light','dark','sport','heat');
     root.classList.add(theme);
@@ -163,22 +168,20 @@ Object.assign(T.ar,{hero_title:"تدرّب وفق رقم\nلا وفق الإحس
     if(meta) meta.setAttribute('content', META[theme]);
     var b=document.getElementById('themeToggle');
     if(b && typeof icon==='function'){
-      var ic=theme==='light'?'moon':'sun';
-      b.innerHTML=icon(ic,17);
-      var next=THEMES[(THEMES.indexOf(theme)+1)%THEMES.length];
-      var n=NAMES[next][lang()==='en'?'en':'ar'];
-      b.setAttribute('aria-label', lang()==='ar'?'التبديل إلى مظهر '+n:'Switch to '+n+' theme');
-      b.title=n;
+      b.innerHTML=icon(theme==='light'?'moon':'sun',17);
+      var next=theme==='light'?'ليلي':'نهاري';
+      if(lang()==='en') next=theme==='light'?'Night':'Day';
+      b.setAttribute('aria-label', lang()==='ar'?'التبديل إلى المظهر ال'+ (theme==='light'?'ليلي':'نهاري'):'Switch theme');
+      b.title=next;
     }
   }
   window.setTheme=paintTheme;
   var themeBtn=document.getElementById('themeToggle');
   if(themeBtn){
     themeBtn.addEventListener('click', function(e){
+      e.preventDefault();
       e.stopImmediatePropagation();
-      var cur=(window.state&&state.theme)||'dark';
-      var i=THEMES.indexOf(cur);
-      paintTheme(THEMES[(i<0?0:i+1)%THEMES.length]);
+      paintTheme(currentTheme()==='light'?'dark':'light');
     }, true);
   }
   function openMenu(e){
@@ -197,7 +200,7 @@ Object.assign(T.ar,{hero_title:"تدرّب وفق رقم\nلا وفق الإحس
   function patchThemeSelect(){
     var sel=document.getElementById('accThemeSelect');
     if(!sel) return;
-    var cur=(window.state&&state.theme)||'dark';
+    var cur=currentTheme();
     var ar=lang()==='ar';
     sel.innerHTML=
       '<option value="dark"'+(cur==='dark'?' selected':'')+'>'+(ar?'ليلي':'Night')+'</option>'+
@@ -217,7 +220,7 @@ Object.assign(T.ar,{hero_title:"تدرّب وفق رقم\nلا وفق الإحس
     window.navigate=function(){ oN.apply(this,arguments); formatHero(); };
   }
   formatHero();
-  paintTheme((window.state&&state.theme)||'dark');
+  paintTheme(currentTheme());
 })();
 </script>
 </body>
