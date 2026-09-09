@@ -187,19 +187,38 @@
     });
   }
 
+  /* الميزة تحتاج خادماً يشغّل دوال. على استضافة ثابتة (GitHub Pages مثلاً)
+     لا وجود لـ /api/coach، فنخفي البطاقة بدل أن نعرض زراً يفشل عند الضغط.
+     يُسأل مرة واحدة في عمر الصفحة. */
+  var available = null;
+  function probe() {
+    if (available !== null) return available;
+    available = fetch(ENDPOINT, { method: "GET" })
+      .then(function (r) { return r.ok; })
+      .catch(function () { return false; });
+    return available;
+  }
+
   function mount() {
     var raw = (location.hash || "#/home").replace("#/", "").split("?")[0].split("/")[0] || "home";
     if (raw !== "plan") return;
     try { if (!state.q.completed) return; } catch (e) { return; }
 
-    var app = document.getElementById("app");
-    if (!app || document.getElementById("coachCard")) return;
-    var anchor = app.querySelector(".container > .card");
-    if (!anchor) return;
+    probe().then(function (ok) {
+      if (!ok) return;
+      // قد يكون المستخدم غادر الصفحة أثناء الفحص
+      var now = (location.hash || "").replace("#/", "").split("?")[0].split("/")[0];
+      if (now !== "plan") return;
 
-    history = [];
-    anchor.insertAdjacentHTML("afterend", cardHTML());
-    wire();
+      var app = document.getElementById("app");
+      if (!app || document.getElementById("coachCard")) return;
+      var anchor = app.querySelector(".container > .card");
+      if (!anchor) return;
+
+      history = [];
+      anchor.insertAdjacentHTML("afterend", cardHTML());
+      wire();
+    });
   }
 
   /* مسارا الدخول مختلفان: تحميل كامل يمر بـ navigate()، أما التنقل داخل

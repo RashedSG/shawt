@@ -93,6 +93,13 @@ function json(status, body) {
   });
 }
 
+/* فحص توفّر: الواجهة تسأل عنه قبل عرض البطاقة.
+   على GitHub Pages لا وجود لهذا المسار فيرجع 404، فتخفي الواجهة الميزة
+   بدل أن تعرض زراً يفشل عند أول سؤال. */
+export function onRequestGet({ env }) {
+  return json(200, { ok: true, key: !!env.ANTHROPIC_API_KEY });
+}
+
 export async function onRequestPost({ request, env }) {
   // نفس الأصل فقط — يمنع استخدام الوسيط من مواقع أخرى.
   const origin = request.headers.get("Origin");
