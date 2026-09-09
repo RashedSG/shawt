@@ -1,0 +1,8 @@
+{
+  "name": "shawt",
+  "private": true,
+  "description": "شوط — الموقع ثابت بلا بناء. هذا الملف لدالة /api/coach فقط، تثبّتها الاستضافة تلقائياً.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0"
+  }
+}
