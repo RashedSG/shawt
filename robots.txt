@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
-Sitemap: https://REPLACE-WITH-YOUR-DOMAIN/sitemap.xml
+
+# ملاحظة: هذا الموقع يُخدم من مسار فرعي (‎/shawt‎)، ومحركات البحث تقرأ
+# robots.txt من جذر النطاق فقط — أي من rashedsg.github.io/robots.txt.
+# فهذا الملف لا يُقرأ عملياً. أبقيناه للاتساق ولحال الانتقال إلى دومين خاص.
+# لتقديم الخريطة، أضفها يدوياً في Google Search Console.
+Sitemap: https://rashedsg.github.io/shawt/sitemap.xml

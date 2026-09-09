@@ -2,9 +2,11 @@
 
 منصة أداء وتحمل للإمارات — موقع ثابت (Static site) من ثلاث ملفات: `index.html` + `style.css` + `app.js`، بدون بناء (build step) وبدون خادم.
 
-## قبل النشر — خطوة واحدة
+## الدومين
 
-في `robots.txt` و`sitemap.xml` بدّل `REPLACE-WITH-YOUR-DOMAIN` بالدومين الفعلي بعد ما تختار الاستضافة.
+`robots.txt` و`sitemap.xml` مضبوطان على `https://rashedsg.github.io/shawt/`. لو انتقلت إلى دومين خاص، بدّل العنوان في الملفين.
+
+**الفهرسة:** لأن الموقع على مسار فرعي، محركات البحث لا تقرأ `robots.txt` من `‎/shawt/‎` — تقرأه من جذر النطاق فقط. فقدّم `sitemap.xml` يدوياً في Google Search Console. هذا القيد يزول مع دومين خاص.
 
 ## التشغيل محلياً
 
